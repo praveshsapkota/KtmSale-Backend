@@ -4,7 +4,11 @@
   "description": "backend api with nexus-schema code first approch and nexus-prisma plugin on top of prisma2 as orm for postgres database",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startDb": "docker compose up -d",
+    "dev": "npx ts-node-dev --transpile-only --no-notify ./src/server.ts",
+    "build" : "tsc",
+    "migrate-save": "npx prisma migrate save --name init --experimental"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/praveshsapkota/graphql-nexus-prisma2/issues"
   },
-  "homepage": "https://github.com/praveshsapkota/graphql-nexus-prisma2#readme"
+  "homepage": "https://github.com/praveshsapkota/graphql-nexus-prisma2#readme",
+  "dependencies": {
+    "@nexus/schema": "^0.20.1",
+    "apollo-server": "^2.23.0",
+    "graphql": "^15.5.0",
+    "prisma": "^2.21.2"
+  }
 }

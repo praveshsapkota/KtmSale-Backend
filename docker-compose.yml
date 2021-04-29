@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    image: "postgres:13.2"
+    ports:
+      - "54321:5432"
+    volumes: 
+      - ./pgdata:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_USER=ethan
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=postgresdb
