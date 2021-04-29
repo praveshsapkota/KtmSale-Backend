@@ -1,0 +1,19 @@
+{
+  "name": "graphql-nexus-prisma2-api",
+  "version": "1.0.0",
+  "description": "backend api with nexus-schema code first approch and nexus-prisma plugin on top of prisma2 as orm for postgres database",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praveshsapkota/graphql-nexus-prisma2.git"
+  },
+  "author": "pravesh sapkota",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/praveshsapkota/graphql-nexus-prisma2/issues"
+  },
+  "homepage": "https://github.com/praveshsapkota/graphql-nexus-prisma2#readme"
+}
