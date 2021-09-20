@@ -48,8 +48,6 @@ enum User_status {
   BLOCKED
 }
 
-
-
 model CartItem {
   id       String @id 
   item     String
@@ -59,14 +57,15 @@ model CartItem {
   products Product[]
   // productId String
   // Product  Product @relation(fields: [productId], references: [id]
- 
- 
 }
 
 model Category {
   createdAt DateTime  @default(now())
   id        String    @id @default(cuid())
   name      String    @unique
+  image     String[]
+  seoTags String[]
+  Status Boolean
   slug      String    @unique
   updatedAt DateTime  @default(now())
   sub_Catagorys sub_catagory[]
@@ -76,6 +75,9 @@ model sub_catagory {
   createdAt DateTime  @default(now())
   id        String    @id @default(cuid())
   name      String    @unique
+  Status    Boolean
+  image     String[]
+  seoTags   String[]
   slug      String    @unique
   updatedAt DateTime  @default(now())
   catagoryid String
@@ -93,70 +95,42 @@ model sub_catagory {
 model Product {
   id            String         @id @default(cuid())
   name          String
-  price         Int
+  slug          String
   sub_catagory  String
-  Product_thumbnail String[]
   sku           String         @unique
+  price         Int
+  productImage  String[]
+  product_thumbnail String
   description   String
   unit          Int
-  updatedAt     DateTime       @default(now())
   discount      Int?
   salePrice     Int
+  variants       Json[]
+  seoTags       String[]
+  status        Boolean
+  updatedAt     DateTime       @default(now())
   cartid        String?
   productenquerieID String?
-  SubCatagory      sub_catagory     @relation(fields: [sub_catagory], references: [id])
-  ProductImage String[]
-  Cart  CartItem? @relation(fields: [cartid], references: [id])
+  subCatagory      sub_catagory     @relation(fields: [sub_catagory], references: [id])
+  cart  CartItem? @relation(fields: [cartid], references: [id])
   productEnquerie Product_Enquerie? @relation(fields: [productenquerieID],references:[id])
-  // userid        String
-  // User          User           @relation(fields: [userid], references: [id])
 
-  // category      String
-  // createdAt     DateTime       @default(now())
-
-  // @@index([category], name: "category")
-  // @@index([user], name: "user")
-}
-model hellow {
-  h Json
-  id String @id @default(cuid())
 }
 
 model Product_Enquerie {
-  id String @id @default(cuid())
-  email String
-  company_name String
-  address String
-  country String
-  state String
-  phoneNumber String
-  products Product[]
-  unit Int
+  id            String @id @default(cuid())
+  email         String
+  company_name  String
+  address       String
+  country       String
+  state         String
+  phoneNumber   String
+  products      Product[]
+  unit          Int
   orderFrequency String
 
 } 
 
-
-// model GoogleMapsLocation {
-//   googlePlacesId String
-//   id             String        @id @default(cuid())
-//   name           String
-//   // OrderDetail    OrderDetail[]
-// }
-
-// model OrderDetail {
-
-//   id                   String              @id @default(cuid())
-//   address              String?
-//   userId               String?
-//   User                 User?               @relation(fields: [userId], references: [id])
-//   // products          String[]
-//   cartiteam            CartItem[]     
-//   payment_method       String
-//   phone_number         String
-//   // GoogleMapsLocation   GoogleMapsLocation? @relation(fields: [googleMapsLocationId], references: [id])
-
-// }
 
 
 
