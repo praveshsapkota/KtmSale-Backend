@@ -1,17 +1,23 @@
 import { verify } from 'jsonwebtoken'
-import { Context } from './context'
+import { Context } from '../context'
+import dotenv from "dotenv"
+
+dotenv.config()
 
 export const APP_SECRET = 'appsecret321'
 
-interface Token {
-  userId: string
-}
 
-export function getUserId(context: Context) {
-  const authHeader = context.req.get('Authorization')
-  if (authHeader) {
-    const token = authHeader.replace('Bearer ', '')
-    const verifiedToken = verify(token, APP_SECRET) as Token
-    return verifiedToken && Number(verifiedToken.userId)
+export function isAdminFromHeader(context: Context) {
+  const authToken = context.req.headers.authorization
+  if (authToken) {
+    //@ts-expect-error
+    const verifiedToken = verify(authToken, process.env.JWT_BACKEND_SECRET)
+    console.log("inside utils verified token",verifiedToken);
+    //@ts-expect-error
+    if(verifiedToken?.user?.role == "ADMIN"){
+      return true
+    }
+    return false
+    // return verifiedToken && Number(verifiedToken.userId)
   }
 }
