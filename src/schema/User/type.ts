@@ -10,7 +10,7 @@ export const User = objectType({
         t.model.billing()
         t.model.role()
         t.model.status()
-        t.model.CartItems()
+        t.model.Cart()
         t.model.contactNumber()
         t.model.role()
         t.model.image()

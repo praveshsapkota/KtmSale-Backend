@@ -2,7 +2,7 @@ import { permissions } from './permissions'
 import dotenv from 'dotenv'
 import { UploadImage } from "./utils/s3"
 import { sign , verify} from "jsonwebtoken"
-import {} from "next-auth"
+// import {} from "next-auth"
 import {
   makeSchema,
   objectType,

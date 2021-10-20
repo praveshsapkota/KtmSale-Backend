@@ -26,7 +26,7 @@ export const Cart = objectType({
     definition(t){
         t.model.id()
         t.model.User()
-        t.model.Products()
+        t.model.iteams()
         t.model.userId()
         
     }
@@ -36,7 +36,7 @@ export const cartIteams = objectType({
     name:"CartIteam",
     definition(t){
         t.model.id()
-        t.model.Products()
+        t.model.Product()
         t.model.quantity()
     }
     
