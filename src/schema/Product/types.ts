@@ -60,7 +60,7 @@ export const ProductEnquerie = objectType({
 })
 
 export const EnquiredProducts = objectType({
-    name : "enquiredProducts",
+    name : "enquiredProduct",
     definition(t){
         t.model.id()
         t.model.productname()

@@ -23,7 +23,7 @@ interface PrismaModels {
   Cart: Prisma.Cart
   CartIteam: Prisma.CartIteam
   Product_Enquerie: Prisma.Product_Enquerie
-  enquiredProducts: Prisma.enquiredProducts
+  enquiredProduct: Prisma.enquiredProduct
 }
 
 // Prisma input types metadata
@@ -123,7 +123,7 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'productname' | 'quantity' | 'product_EnquerieId' | 'productEnquerie'
     }
   }
-  enquiredProducts: {
+  enquiredProduct: {
 
   }
 }
@@ -151,8 +151,8 @@ interface NexusPrismaOutputs {
     cartIteams: 'CartIteam'
     productEnquerie: 'Product_Enquerie'
     productEnqueries: 'Product_Enquerie'
-    enquiredProducts: 'enquiredProducts'
-    enquiredProducts: 'enquiredProducts'
+    enquiredProduct: 'enquiredProduct'
+    enquiredProducts: 'enquiredProduct'
   },
   Mutation: {
     createOneAccount: 'Account'
@@ -215,12 +215,12 @@ interface NexusPrismaOutputs {
     deleteOneProduct_Enquerie: 'Product_Enquerie'
     deleteManyProduct_Enquerie: 'AffectedRowsOutput'
     upsertOneProduct_Enquerie: 'Product_Enquerie'
-    createOneenquiredProducts: 'enquiredProducts'
-    updateOneenquiredProducts: 'enquiredProducts'
-    updateManyenquiredProducts: 'AffectedRowsOutput'
-    deleteOneenquiredProducts: 'enquiredProducts'
-    deleteManyenquiredProducts: 'AffectedRowsOutput'
-    upsertOneenquiredProducts: 'enquiredProducts'
+    createOneenquiredProduct: 'enquiredProduct'
+    updateOneenquiredProduct: 'enquiredProduct'
+    updateManyenquiredProduct: 'AffectedRowsOutput'
+    deleteOneenquiredProduct: 'enquiredProduct'
+    deleteManyenquiredProduct: 'AffectedRowsOutput'
+    upsertOneenquiredProduct: 'enquiredProduct'
   },
   Account: {
     id: 'String'
@@ -313,7 +313,7 @@ interface NexusPrismaOutputs {
     cartid: 'String'
     cartIteam: 'CartIteam'
     enquiredProductId: 'String'
-    enquiredProduct: 'enquiredProducts'
+    enquiredProduct: 'enquiredProduct'
   }
   Cart: {
     id: 'String'
@@ -336,11 +336,11 @@ interface NexusPrismaOutputs {
     country: 'String'
     state: 'String'
     phoneNumber: 'String'
-    EnquiredProducts: 'enquiredProducts'
+    EnquiredProducts: 'enquiredProduct'
     unit: 'Int'
     orderFrequency: 'String'
   }
-  enquiredProducts: {
+  enquiredProduct: {
     id: 'String'
     productname: 'Product'
     quantity: 'Int'
@@ -361,7 +361,7 @@ interface NexusPrismaMethods {
   Cart: Typegen.NexusPrismaFields<'Cart'>
   CartIteam: Typegen.NexusPrismaFields<'CartIteam'>
   Product_Enquerie: Typegen.NexusPrismaFields<'Product_Enquerie'>
-  enquiredProducts: Typegen.NexusPrismaFields<'enquiredProducts'>
+  enquiredProduct: Typegen.NexusPrismaFields<'enquiredProduct'>
   Query: Typegen.NexusPrismaFields<'Query'>
   Mutation: Typegen.NexusPrismaFields<'Mutation'>
 }

@@ -155,7 +155,7 @@ model Product {
   cartid                String?
   cartIteam             CartIteam?        @relation(fields: [cartid], references: [id])        
   enquiredProductId     String?
-  enquiredProduct       enquiredProducts? @relation(fields: [enquiredProductId],references:[id])
+  enquiredProduct       enquiredProduct? @relation(fields: [enquiredProductId],references:[id])
 
 }
 
@@ -186,12 +186,12 @@ model Product_Enquerie {
   country               String?
   state                 String?
   phoneNumber           String?
-  EnquiredProducts      enquiredProducts[]
+  EnquiredProducts      enquiredProduct[]
   unit                  Int?
   orderFrequency        String?
 } 
 
-model enquiredProducts {
+model enquiredProduct {
   id                    String               @id @default(cuid())
   productname           Product?
   quantity              Int?
