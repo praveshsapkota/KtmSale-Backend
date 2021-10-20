@@ -11,6 +11,9 @@ const Rules = {
     }
     return new Error("Not authorized please contact admin to allow access")
   }),
+  signup : rule()((_parent, _args, context: Context) => {
+    return true
+  }),
   // isPostOwner: rule()(async (_parent, args, context) => {
   //   const userId = getUserEmailWithRole(context)
   //   const author = await context.prisma.post
@@ -40,5 +43,6 @@ export const permissions = shield({
     updateOneProduct: Rules.isAdmin,
     // deleteOneProduct : Rules.isAdmin,
     S3ImageUpload: Rules.isAdmin,
+    signup : Rules.signup,
   },
 })

@@ -56,7 +56,7 @@ const startApolloServer = async (
 
     // This middleware should be added before calling `applyMiddleware`.
     app.use(graphqlUploadExpress({
-        maxFileSize: 10000, // 10 MB
+        maxFileSize: 10000000000, // 10 MB
         maxFiles: 20,
     }))
     app.use(cors({

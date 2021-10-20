@@ -58,7 +58,4 @@ export const generateUploadUrl = async (imgname: string) => {
   const uploadurl = await s3.getSignedUrlPromise('putObject', params)
   return uploadurl
 }
-function reason(reason: any, arg1: string) {
-  throw new Error('Function not implemented.')
-}
 
