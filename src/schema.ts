@@ -2,6 +2,7 @@ import { permissions } from './permissions'
 import dotenv from 'dotenv'
 import { UploadImage } from "./utils/s3"
 import { sign , verify} from "jsonwebtoken"
+import path from "path"
 // import {} from "next-auth"
 import {
   makeSchema,
@@ -75,7 +76,7 @@ const Mutation_type = objectType({
         const reducedResult = results.reduce((storedFiles, { status, value, reason }) => {
           console.log(value, reason, status);
           //@ts-expect-error
-          if (value) storedFiles.push(value)
+           if (value) storedFiles.push(value)
           else console.error(`Failed to store upload: ${reason}`);
           return storedFiles;
         }, [])
@@ -148,9 +149,10 @@ export const schemaWithoutPermissions = makeSchema({
       paginationStrategy: 'prisma',
     }),
   ],
+  shouldGenerateArtifacts: true,
   outputs: {
-    schema: __dirname + '/generated/schema.graphql',
-    typegen: __dirname + '/generated/nexus.ts',
+    schema: path.join(__dirname, '..', 'generated', 'schema.graphql'),
+    typegen: path.join(__dirname, '..', 'generated', 'nexus-typegen.d.ts'),
   },
   contextType: {
     module: require.resolve('./context'),
@@ -159,7 +161,7 @@ export const schemaWithoutPermissions = makeSchema({
   sourceTypes: {
     modules: [
       {
-        module: '@prisma/client',
+        module: require.resolve("../node_modules/.prisma/client/index.d.ts"),
         alias: 'prisma',
       },
     ],

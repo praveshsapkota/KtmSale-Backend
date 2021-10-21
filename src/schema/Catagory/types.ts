@@ -1,6 +1,6 @@
 
-import { nonNull, objectType, list } from 'nexus'
-import { GraphQLUpload } from "graphql-upload"
+import { objectType,  } from 'nexus'
+// import { GraphQLUpload } from "graphql-upload"
 
 export const Category = objectType({
     name: 'Category',
@@ -14,7 +14,6 @@ export const Category = objectType({
         t.model.seoTags()
     },
 })
-
 export const SubCatagory = objectType({
     name: "sub_catagory",
     definition(t) {
@@ -26,6 +25,5 @@ export const SubCatagory = objectType({
         t.model.status()
         t.model.seoTags()
         t.model.Products()
-        // t.model.Products()
     }
 })
