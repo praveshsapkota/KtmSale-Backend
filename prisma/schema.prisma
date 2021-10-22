@@ -34,7 +34,7 @@ model Account {
   oauth_token_secret String?
   oauth_token        String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id])
 
   @@unique([provider, providerAccountId])
 }
@@ -44,7 +44,7 @@ model Session {
   sessionToken        String       @unique
   userId              String
   expires             DateTime
-  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user                User         @relation(fields: [userId], references: [id])
 }
 
 model User {

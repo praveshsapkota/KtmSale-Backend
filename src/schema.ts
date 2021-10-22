@@ -151,8 +151,8 @@ export const schemaWithoutPermissions = makeSchema({
   ],
   shouldGenerateArtifacts: true,
   outputs: {
-    schema: path.join(__dirname, '..', 'generated', 'schema.graphql'),
-    typegen: path.join(__dirname, '..', 'generated', 'nexus-typegen.d.ts'),
+    schema: path.join(__dirname, '..', '/src/generated', 'schema.graphql'),
+    typegen: path.join(__dirname, '..', '/src/generated', 'nexus-typegen.ts'),
   },
   contextType: {
     module: require.resolve('./context'),
@@ -161,7 +161,7 @@ export const schemaWithoutPermissions = makeSchema({
   sourceTypes: {
     modules: [
       {
-        module: require.resolve("../node_modules/.prisma/client/index.d.ts"),
+        module: '@prisma/client',
         alias: 'prisma',
       },
     ],
