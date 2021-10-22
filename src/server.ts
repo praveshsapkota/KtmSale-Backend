@@ -49,7 +49,7 @@ const startApolloServer = async (
         },
         // resolvers,
         // typeDefs,
-        // introspection: process.env.NODE_ENV !== 'production'
+        introspection: process.env.NODE_ENV === 'production'
     })
     // More required logic for integrating with Express
     await server.start()
