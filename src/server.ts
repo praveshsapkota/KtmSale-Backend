@@ -49,7 +49,7 @@ const startApolloServer = async (
         },
         // resolvers,
         // typeDefs,
-        introspection: process.env.NODE_ENV === 'production'
+        // introspection: process.env.NODE_ENV === 'production'
     })
     // More required logic for integrating with Express
     await server.start()
@@ -60,7 +60,7 @@ const startApolloServer = async (
         maxFiles: 20,
     }))
     app.use(cors({
-        origin : ['http://localhost:3000', 'https://studio.apollographql.com' , 'ktm-sale.vercel.app' , 'www.praveshsapkota.com.np'],
+        origin : ['http://localhost:3000', 'https://studio.apollographql.com' ,"https://ktm-sale-git-main-praveshsapkota.vercel.app/", 'ktm-sale.vercel.app' , 'www.praveshsapkota.com.np'],
         credentials: true,
         preflightContinue : true,
         allowedHeaders: ['Authorization'],
@@ -76,7 +76,7 @@ const startApolloServer = async (
 
     // Modified server start
     await new Promise((resolve) =>
-        httpServer.listen({ port: (process.env.PORT || 5000) }, (): void => {
+        httpServer.listen({ port: (5000) }, (): void => {
             console.log(
                 `🚀 Server ready at http://localhost:5000${server.graphqlPath}`,
             )

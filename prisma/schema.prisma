@@ -12,6 +12,7 @@ datasource db {
   provider = "postgresql"
   // url      = "postgresql://ethan:qwerty@localhost:54321/postgresdb?schema=public"
   url = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 
